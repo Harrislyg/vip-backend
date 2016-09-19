@@ -60,6 +60,12 @@ app.get('/user', appController.userLoggedIn, (req, res) => {
   res.status(200).json({name: name})
 })
 
+// get a particular user based on his ID
+app.get('/user/:id', appController.showUser)
+
+// get users based on their role: developer, engineer, designer, hustler
+app.get('/user/role/:role', appController.roleUser)
+
 // user specific route
 app.get('/users-secret', appController.userLoggedIn, (req, res) => {
   // comparing against a hardcoded id but in reality would be checking a ref-id from a db record e.g. post.owner_id

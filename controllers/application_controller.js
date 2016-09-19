@@ -40,6 +40,24 @@ function userLoggedInAdvanced (req, res, next) {
   })
 }
 
+// showUser allows us to get a unique user bsed on the id provided in the params
+function showUser (req, res) {
+  console.log(req.params.id)
+  User.findById(req.params.id, function (err, user) {
+    if (err) return res.status(401).json({error: '/users users/:id error 1'})
+    res.status(200).json({user: user})
+  })
+}
+
+function roleUser (req, res) {
+  User.find({role: req.params.role}, function (err, usersArray) {
+    if (err) return res.status(401).json({error: '/users/role/:role error 1'})
+    res.status(200).json({usersArray: usersArray})
+  })
+}
+
 module.exports = {
-  userLoggedIn: userLoggedInAdvanced
+  userLoggedIn: userLoggedInAdvanced,
+  showUser: showUser,
+  roleUser: roleUser
 }
