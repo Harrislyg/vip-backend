@@ -60,9 +60,9 @@ function updateProfile (req, res, next) {
   User.findOne({email: req.currentUser.email}, (err, user) => {
     if (err) res.status(401).json({error: 'Cannot find user'})
     else {
-      // user.name = req.body.name
-      // user.email = req.body.email
-      // user.password = req.body.password
+      user.name = req.body.name
+      user.email = req.body.email
+      user.password = req.body.password
       user.role = req.body.role
       user.summary = req.body.summary
 
