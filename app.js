@@ -61,10 +61,16 @@ app.get('/user', appController.userLoggedIn, (req, res) => {
 })
 
 // get a particular user based on his ID
-app.get('/user/:id', appController.showUser)
+app.get('/users/:id', appController.showUser)
 
 // get users based on their role: developer, engineer, designer, hustler
-app.get('/user/role/:role', appController.roleUser)
+app.get('/users/role/:role', appController.roleUser)
+
+// update user profile of HIS OWN ACCOUNT
+app.put('/user/profile', appController.userLoggedIn, appController.updateProfile)
+
+// get a user's elaborated profile of HIS OWN ACCOUNT
+app.get('/user/profile', appController.userLoggedIn, appController.getProfile)
 
 // user specific route
 app.get('/users-secret', appController.userLoggedIn, (req, res) => {
@@ -72,10 +78,10 @@ app.get('/users-secret', appController.userLoggedIn, (req, res) => {
   if (req.currentUser.id !== '5785df577262545a997485b9') {
     return res.status(401).json({error: 'unauthorised'})
   }
-
   // else
   res.status(200).json({secret: 'content'})
 })
+
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`)
 })

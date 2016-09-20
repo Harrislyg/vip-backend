@@ -56,8 +56,38 @@ function roleUser (req, res) {
   })
 }
 
+function updateProfile (req, res, next) {
+  User.findOne({email: req.currentUser.email}, (err, user) => {
+    if (err) res.status(401).json({error: 'Cannot find user'})
+    else {
+      // user.name = req.body.name
+      // user.email = req.body.email
+      // user.password = req.body.password
+      user.role = req.body.role
+      user.summary = req.body.summary
+
+      user.save(function (err) {
+        if (err) res.status(400).json({error: 'Cannot update user'})
+        res.status(200).json(user)
+        next()
+      })
+    }
+  })
+}
+
+function getProfile (req, res) {
+  User.findOne({email: req.currentUser.email}, (err, user) => {
+    if (err) return res.status(401).json({error: 'Cannot find user'})
+    else {
+      res.status(200).json({userData: req.currentUser})
+    }
+  })
+}
+
 module.exports = {
   userLoggedIn: userLoggedInAdvanced,
   showUser: showUser,
-  roleUser: roleUser
+  roleUser: roleUser,
+  updateProfile: updateProfile,
+  getProfile: getProfile
 }
