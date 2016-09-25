@@ -4,12 +4,21 @@ const bcrypt = require('bcrypt')
 const uuid = require('uuid')
 
 const UserSchema = new mongoose.Schema({
+  profileImg: String,
   name: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  auth_token: { type: String, unique: true },
   role: {type: String, required: true},
-  summary: {type: String},
-  auth_token: { type: String, unique: true }
+  industry: [String],
+  // the industry field will be used for the industries that their potnential partners must possess
+  summary: { type: String },
+  experience: [String],
+  school: { type: String },
+  major: { type: String },
+  teambizstage: { type: String },
+  bizstage: {type: String},
+  partnerrole: { type: String }
 })
 
 UserSchema.pre('save', function (done) {
