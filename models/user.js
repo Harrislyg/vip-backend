@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
   auth_token: { type: String, unique: true },
   role: {type: String, required: true},
   industry: [String],
+  facebook: String,
+  linkedin: String,
+  twitter: String,
+  github: String,
   // the industry field will be used for the industries that their potnential partners must possess
   summary: { type: String },
   experience: [String],
