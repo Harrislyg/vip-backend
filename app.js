@@ -54,11 +54,14 @@ app.get('/', (req, res) => {
 app.get('/secret', appController.userLoggedIn, (req, res) => {
   res.status(200).json({secret: 'content'})
 })
-// get the currently logged in user
-app.get('/user', appController.userLoggedIn, (req, res) => {
-  var name = req.currentUser.name
-  res.status(200).json({name: name})
-})
+// get the name of currently logged in user
+// app.get('/user', appController.userLoggedIn, (req, res) => {
+//   var name = req.currentUser.name
+//   res.status(200).json({name: name})
+// })
+
+// get an array of all users
+app.get('/users', appController.allUsers)
 
 // get a particular user based on his ID
 app.get('/users/:id', appController.showUser)

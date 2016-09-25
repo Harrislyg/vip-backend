@@ -1,19 +1,19 @@
 const User = require('../models/user')
 const basicAuth = require('basic-auth')
 
-function userLoggedIn (req, res, next) {
-  const userEmail = req.get('User-Email')
-  const authToken = req.get('Auth-Token')
-  console.log(basicAuth)
-  if (!userEmail || !authToken) return res.status(401).json({error: 'unauthorised'})
-
-  User.findOne({email: userEmail, auth_token: authToken}, (err, user) => {
-    if (err || !user) return res.status(401).json({error: 'unauthorised'})
-
-    req.currentUser = user
-    next()
-  })
-}
+// function userLoggedIn (req, res, next) {
+//   const userEmail = req.get('User-Email')
+//   const authToken = req.get('Auth-Token')
+//   console.log(basicAuth)
+//   if (!userEmail || !authToken) return res.status(401).json({error: 'unauthorised'})
+//
+//   User.findOne({email: userEmail, auth_token: authToken}, (err, user) => {
+//     if (err || !user) return res.status(401).json({error: 'unauthorised'})
+//
+//     req.currentUser = user
+//     next()
+//   })
+// }
 
 // The following method allows the authentication token to be passed as HTTP basic authentication header, custom headers or in the query string or body
 function userLoggedInAdvanced (req, res, next) {
@@ -38,6 +38,14 @@ function userLoggedInAdvanced (req, res, next) {
     req.currentUser = user
     next()
   })
+}
+
+function allUsers (req, res) {
+  User.find(function (err, usersArray) {
+    if (err) return res.status(401).json({error: '/users/role/:role error 1'})
+    res.status(200).json({usersArray: usersArray})
+  })
+  // res.status(200).json({message: 'Hello'})
 }
 
 // showUser allows us to get a unique user bsed on the id provided in the params
@@ -89,5 +97,6 @@ module.exports = {
   showUser: showUser,
   roleUser: roleUser,
   updateProfile: updateProfile,
-  getProfile: getProfile
+  getProfile: getProfile,
+  allUsers: allUsers
 }
