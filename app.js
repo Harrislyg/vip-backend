@@ -17,8 +17,6 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect(process.env.MONGODB_URI)
-
 // enable cors for all routes
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
@@ -119,3 +117,5 @@ app.get('/users-secret', appController.userLoggedIn, (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`)
 })
+
+mongoose.connect(process.env.MONGODB_URI)
