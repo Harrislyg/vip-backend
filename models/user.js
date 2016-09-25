@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const experience = require('./experience.js')
+
 const bcrypt = require('bcrypt')
 
 const uuid = require('uuid')
@@ -17,7 +19,7 @@ const UserSchema = new mongoose.Schema({
   github: String,
   // the industry field will be used for the industries that their potnential partners must possess
   summary: { type: String },
-  experience: [String],
+  experiences: [experience.schema],
   school: { type: String },
   major: { type: String },
   teambizstage: { type: String },

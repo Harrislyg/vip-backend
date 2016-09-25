@@ -72,7 +72,19 @@ function updateProfile (req, res, next) {
       user.email = req.body.email
       user.password = req.body.password
       user.role = req.body.role
+
+      user.industry = req.body.industry
+      user.facebook = req.body.facebook
+      user.linkedin = req.body.linkedin
+      user.github = req.body.github
       user.summary = req.body.summary
+
+      user.experiences = req.body.experiences
+      user.school = req.body.school
+      user.major = req.body.major
+      user.teambizstage = req.body.teambizstage
+      user.bizstage = req.body.bizstage
+      user.partnerrole = req.body.partnerrole
 
       user.save(function (err) {
         if (err) res.status(400).json({error: 'Cannot update user'})
