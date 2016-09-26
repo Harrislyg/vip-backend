@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
   major: { type: String },
   teambizstage: { type: String },
   bizstage: {type: String},
-  partnerrole: { type: String }
+  partnerrole: [ String ]
 })
 
 UserSchema.pre('save', function (done) {

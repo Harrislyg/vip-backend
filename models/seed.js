@@ -37,14 +37,14 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': 'Engineer'
+        'partnerrole': ['Engineer', 'Hustler']
       },
       {
         'profileImg': 'https://cofounder-sg.s3.amazonaws.com/happy.png',
         'name': 'Harris Leow',
         'email': 'harris@u.nus.edu',
         'password': 'password',
-        'role': 'Developer',
+        'role': 'Designer',
         'industry': ['FinTech', 'Data Science'],
         'facebook': 'https://www.facebook.com/harris.leow',
         'linkedin': 'https://sg.linkedin.com/in/harrisleow',
@@ -55,14 +55,14 @@ var data = [
         'major': 'Quant Economics',
         'teambizstage': 'Business Plan Mapped',
         'bizstage': 'MVP',
-        'partnerrole': 'Designer'
+        'partnerrole': ['Designer', 'Engineer']
       },
       {
         'profileImg': 'https://cofounder-sg.s3.amazonaws.com/happy.png',
         'name': 'Rafikah',
         'email': 'rafikah@u.nus.edu',
         'password': 'password',
-        'role': 'Developer',
+        'role': 'Marketer',
         'industry': ['AI', 'Machine Learning', 'Data Science'],
         'facebook': 'https://www.facebook.com/harris.leow',
         'linkedin': 'https://sg.linkedin.com/in/harrisleow',
@@ -73,7 +73,7 @@ var data = [
         'major': 'Marketing',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': 'Developer'
+        'partnerrole': ['Developer', 'Designer']
 
       },
       {
@@ -92,7 +92,7 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': 'Engineer'
+        'partnerrole': ['Engineer', 'Developer', 'Designer']
 
       },
       {
@@ -111,7 +111,7 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': 'Engineer'
+        'partnerrole': ['Developer', 'Engineer', 'Marketer']
 
       },
       {
@@ -130,7 +130,7 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': 'Engineer'
+        'partnerrole': ['Engineer', 'Developer', 'Designer']
 
       },
       {
@@ -149,7 +149,7 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': 'Engineer'
+        'partnerrole': ['Marketer', 'Engineer', 'Designer']
 
       }
     ]
