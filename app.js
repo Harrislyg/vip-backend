@@ -39,6 +39,20 @@ app.get('/sign-s3', (req, res) => {
     ACL: 'public-read'
   }
 
+  s3.getSignedUrl('putObject', s3Params, (err, data) => {
+    if (err) {
+      console.log(err)
+      return res.end()
+    }
+    const returnData = {
+      signedRequest: data,
+      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+    }
+    res.write(JSON.stringify(returnData))
+    res.end()
+  })
+})
+
 app.post('/signup-s3', (req, res) => {
   var buf = new Buffer(req.body.profileImgBase64.replace(/^data:image\/\w+;base64,/, ""),'base64')
   var data = {
@@ -74,20 +88,6 @@ app.post('/signup-s3', (req, res) => {
   })
 })
 
-
-  s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if (err) {
-      console.log(err)
-      return res.end()
-    }
-    const returnData = {
-      signedRequest: data,
-      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
-    }
-    res.write(JSON.stringify(returnData))
-    res.end()
-  })
-})
 
 app.post('/signup', (req, res) => {
   const user = new User(req.body)
