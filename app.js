@@ -59,7 +59,8 @@ app.post('/signup-s3', (req, res) => {
     Key: `${md5(req.body.email)}-${uuid.v4()}.png`,
     Body: buf,
     ContentEncoding: 'base64',
-    ContentType: 'image/png'
+    ContentType: 'image/png',
+    ACL: 'public-read'
   }
   var imageUrl = `https://${S3_BUCKET}.s3.amazonaws.com/${data.Key}`
   var params = req.body
