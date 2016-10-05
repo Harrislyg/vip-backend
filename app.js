@@ -64,7 +64,7 @@ app.post('/signup-s3', (req, res) => {
   var imageUrl = `https://${S3_BUCKET}.s3.amazonaws.com/${data.key}`
   var params = req.body
   var allowedParams = ['email', 'password', 'name', 'role', 'summary']
-  Object.keys(params).filter((key) => !allowedParams.includes(key))
+  Object.keys(params).filter((key) => allowedParams.indexOf(key) < 0)
     .forEach((key) => delete params[key])
 
   params.profileImg = imageUrl
@@ -87,7 +87,6 @@ app.post('/signup-s3', (req, res) => {
       }
   })
 })
-
 
 app.post('/signup', (req, res) => {
   const user = new User(req.body)
