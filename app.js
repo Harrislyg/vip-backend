@@ -61,7 +61,7 @@ app.post('/signup-s3', (req, res) => {
     ContentEncoding: 'base64',
     ContentType: 'image/png'
   }
-  var imageUrl = `https://${S3_BUCKET}.s3.amazonaws.com/${data.key}`
+  var imageUrl = `https://${S3_BUCKET}.s3.amazonaws.com/${data.Key}`
   var params = req.body
   var allowedParams = ['email', 'password', 'name', 'role', 'summary']
   Object.keys(params).filter((key) => allowedParams.indexOf(key) < 0)
