@@ -9,6 +9,8 @@ const mongoose = require('mongoose')
 const logger = require('morgan')
 const User = require('./models/user')
 const appController = require('./controllers/application_controller')
+const uuid = require('uuid')
+const md5 = require('MD5')
 
 const app = express()
 const S3_BUCKET = process.env.S3_BUCKET
@@ -36,6 +38,42 @@ app.get('/sign-s3', (req, res) => {
     ContentType: fileType,
     ACL: 'public-read'
   }
+
+app.post('/signup-s3', (req, res) => {
+  var buf = new Buffer(req.body.profileImgBase64.replace(/^data:image\/\w+;base64,/, ""),'base64')
+  var data = {
+    Key: `${md5(req.body.email)}-${uuid.v4()}.png`,
+    Body: buf,
+    ContentEncoding: 'base64',
+    ContentType: 'image/png'
+  }
+  var imageUrl = `https://${S3_BUCKET}.s3.amazonaws.com/${data.key}`
+  var params = req.body
+  var allowedParams = ['email', 'password', 'name', 'role', 'summary']
+  Object.keys(params).filter((key) => !allowedParams.includes(key))
+    .forEach((key) => delete params[key])
+
+  params.profileImg = imageUrl
+
+  const user = new User(params)
+
+  user.save((err, user) => {
+    if (err) return res.status(422).json({error: err.message})
+
+    res.status(201).json({message: 'user created', auth_token: user.auth_token})
+  })
+
+  var s3Bucket = new aws.S3({ params: { Bucket: S3_BUCKET }})
+  s3Bucket.putObject(data, function(err, data){
+      if (err) {
+        console.log(err);
+        console.log('Error uploading data: ', data);
+      } else {
+        console.log('succesfully uploaded the image!');
+      }
+  })
+})
+
 
   s3.getSignedUrl('putObject', s3Params, (err, data) => {
     if (err) {
