@@ -23,7 +23,7 @@ var data = [
     'documents': [
       {
         'profileImg': 'https://scontent.fsnc1-5.fna.fbcdn.net/v/t1.0-9/13912649_10154341045669454_1360564859556121569_n.jpg?oh=158409f18ba189e695a200be70c1bfbd&oe=586BEFDF',
-        'name': 'An Vu',
+        'name': 'Anh Vu',
         'email': 'me@maianvu.com',
         'password': 'password',
         'role': 'Developer',
@@ -40,7 +40,7 @@ var data = [
         'partnerrole': ['Engineer', 'Designer']
       },
       {
-        'profileImg': 'https://scontent.fsnc1-5.fna.fbcdn.net/v/t1.0-9/13921061_10153791624370737_573675253896951613_n.jpg?oh=8f7087293f340af85e49d9df20ff966f&oe=5873771A',
+        'profileImg': 'http://zionglobalmarketing.com/wp-content/uploads/2014/07/harris.png',
         'name': 'Harris Leow',
         'email': 'harris@u.nus.edu',
         'password': 'password',
@@ -77,7 +77,7 @@ var data = [
 
       },
       {
-        'profileImg': 'https://cofounder-sg.s3.amazonaws.com/happy.png',
+        'profileImg': 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/14502818_2273006596173374_4240370458069660292_n.jpg?oh=c40c36f6da3bd5e8566ef1c3fbccef89&oe=586546F8',
         'name': 'Isabella',
         'email': 'isabella@u.nus.edu',
         'password': 'password',
@@ -96,30 +96,11 @@ var data = [
 
       },
       {
-        'profileImg': 'https://cofounder-sg.s3.amazonaws.com/happy.png',
-        'name': 'Huizhen',
-        'email': 'huizhen@u.nus.edu',
+        'profileImg': 'http://imgur.com/WYJYrFp',
+        'name': 'Passionate Paul',
+        'email': 'paul@u.nus.edu',
         'password': 'password',
-        'role': 'Designer',
-        'industry': ['UI/UX', 'Digital Marketing', 'Agile Development'],
-        'facebook': 'https://www.facebook.com/harris.leow',
-        'linkedin': 'https://sg.linkedin.com/in/harrisleow',
-        'github': 'https://github.com/Harrislyg',
-        'summary': 'I am a Economics undergraduate specializing in Quantitative & Financial Economics. Our team is looking to integrate AI into the FinTech industry',
-        'experiences': [{exptitle: 'IOS Developer', expcompany: 'Traceapp', expdescription: 'I developed the core technology of Tranceapp on both IOS and Android devices. This included the integration of media functionalities as well as the gamification of the dance features. The features were developed using Objective-C and Swift for IOS and Java for Android. We are currently looking to build the add-ons with React-native with serves to accomodate both IOS and Android devices.'}, {exptitle: 'Web Developer', expcompany: 'Reactor', expdescription: 'At Reactor, I headed the development of their first web application using React JS with Redux. Albeit a small team, I was given the important tasks of developing the major technological dependencies that the accelerator need to incorporate for their initial launch.'}],
-        'school': 'NUS',
-        'major': 'Computer Science',
-        'teambizstage': 'MVP',
-        'bizstage': 'MVP',
-        'partnerrole': ['Developer', 'Engineer', 'Marketer']
-
-      },
-      {
-        'profileImg': 'https://cofounder-sg.s3.amazonaws.com/happy.png',
-        'name': 'An Vu',
-        'email': 'me4@maianvu.com',
-        'password': 'password',
-        'role': 'Hustler',
+        'role': 'Developer',
         'industry': ['AI', 'Machine Learning', 'Data Science'],
         'facebook': 'https://www.facebook.com/harris.leow',
         'linkedin': 'https://sg.linkedin.com/in/harrisleow',
@@ -130,16 +111,16 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': ['Engineer', 'Developer', 'Designer']
+        'partnerrole': ['Engineer', 'Hustler', 'Designer']
 
       },
       {
-        'profileImg': 'https://cofounder-sg.s3.amazonaws.com/happy.png',
-        'name': 'An Vu',
+        'profileImg': 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/13925684_10153791624150737_8314718255592890474_o.jpg',
+        'name': 'William',
         'email': 'me5@maianvu.com',
         'password': 'password',
-        'role': 'Marketer',
-        'industry': ['AI', 'Machine Learning', 'Data Science'],
+        'role': 'Developer',
+        'industry': ['Fintech', 'Data Science'],
         'facebook': 'https://www.facebook.com/harris.leow',
         'linkedin': 'https://sg.linkedin.com/in/harrisleow',
         'github': 'https://github.com/Harrislyg',
@@ -149,7 +130,7 @@ var data = [
         'major': 'Computer Science',
         'teambizstage': 'MVP',
         'bizstage': 'MVP',
-        'partnerrole': ['Marketer', 'Engineer', 'Designer']
+        'partnerrole': ['Marketer', 'Hustler', 'Designer']
 
       }
     ]
